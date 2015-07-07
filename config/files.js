@@ -22,7 +22,7 @@ module.exports = function(lineman) {
     less: {
       compile: {
         options: {
-          paths: ["vendor/css/normalize.css", "vendor/css/**/*.css", "app/css/**/*.less"]
+          paths: ["app/css/*.less"]
         }
       }
     }
