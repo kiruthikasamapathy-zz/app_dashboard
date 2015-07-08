@@ -1,11 +1,11 @@
 {
-  "name": "lineman-angular-template",
-  "title": "An HTML/JS/CSS app using Angular.JS",
+  "name": "Environments-Dashboard",
+  "title": "Dashboard displaying versions of all platform applications across different environments",
   "version": "0.0.1",
   "private": true,
   "author": {
-    "name": "John Doe",
-    "company": "ACME, Inc."
+    "name": "Environments team",
+    "company": "NBN"
   },
   "devDependencies": {
     "coffee-script": "^1.6.3",
