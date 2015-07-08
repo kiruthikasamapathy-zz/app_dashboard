@@ -1,0 +1,8 @@
+angular.module("app").constant("environments", [
+                            {"name":"SIT1"},
+                            {"name":"SIT2"},
+                            {"name":"SIT3"},
+                            {"name":"PROD"},
+                            {"name":"PSUP"},
+                            {"name":"CVT"},
+                            ]);

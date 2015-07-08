@@ -1,0 +1,15 @@
+{
+  "environments": [{
+    "name": "SIT1"
+  }, {
+    "name": "SIT2"
+  }, {
+    "name": "SIT3"
+  }, {
+    "name": "PRODaaa"
+  }, {
+    "name": "PSUP"
+  }, {
+    "name": "CVT"
+  }]
+}
