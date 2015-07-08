@@ -3,22 +3,22 @@
     "id": "Fulfilment",
     "environments": [{
       "name": "SIT1",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "SIT2",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "SIT3",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "PROD",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "PSUP",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "CVT",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }]
   }, {
     "id": "Assurance - Remedy",
@@ -66,22 +66,22 @@
     "id": "Assurance - T&D",
     "environments": [{
       "name": "SIT1",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "SIT2",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "SIT3",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "PROD",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "PSUP",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "CVT",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }]
   }, {
     "id": "iB2B",
@@ -171,22 +171,22 @@
     "id": "WWM",
     "environments": [{
       "name": "SIT1",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "SIT2",
-      "version": "1.2"
+      "version": "14.0.98.1"
     }, {
       "name": "SIT3",
-      "version": "1.2"
+      "version": "13.0.0.1"
     }, {
       "name": "PROD",
-      "version": "1.2"
+      "version": "13.0.0.1"
     }, {
       "name": "PSUP",
-      "version": "1.2"
+      "version": "13.0.0.1"
     }, {
       "name": "CVT",
-      "version": "1.2"
+      "version": "13.0.0.1"
     }]
   }, {
     "id": "WFM",
