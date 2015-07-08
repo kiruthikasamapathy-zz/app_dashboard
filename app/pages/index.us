@@ -8,7 +8,7 @@
   <body>
     <div class="section">
       <div class="title">
-        <h3>Environments Dashboard</h3>
+        <h3 id="title">Environments Dashboard</h3>
         <div id="view" ng-view></div>
       </div>
     </div>
