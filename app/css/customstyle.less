@@ -1,22 +1,20 @@
-#title {
+.title {
   color: #6a2569;
   font-size: 45px;
   font-family: 'Open Sans Semibold';
   text-align: center;
   text-transform: uppercase;
 }
-#horizontal-table {
+.hor-table {
   font-family: 'Open Sans';
   font-size: 18px;
   background: #fff;
   width: 900px;
   border-collapse: collapse;
   text-align: left;
-  margin: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
 }
-#horizontal-table th {
+.hor-table-header {
   font-family: 'Open Sans Bold';
   font-size: 20px;
   font-weight: normal;
@@ -24,7 +22,7 @@
   border-bottom: 2px solid #6678b1;
   padding: 10px 8px;
 }
-#table-td{
+.hor-table-td {
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: normal;
@@ -32,7 +30,7 @@
   color: #669;
   padding: 4px 8px;
 }
-#table-app-name{
+#app-name {
   font-family: 'Open Sans Bold';
   font-size: 18px;
   font-weight: normal;
@@ -40,6 +38,12 @@
   color: #669;
   padding: 4px 8px;
 }
-#horizontal-table tbody tr:hover td {
+.hor-table tbody tr:hover td {
   color: #009;
+}
+.sortorder:after {
+  content: '\25b2';
+}
+.sortorder.reverse:after {
+  content: '\25bc';
 }
