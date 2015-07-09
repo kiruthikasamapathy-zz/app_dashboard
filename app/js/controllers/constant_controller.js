@@ -1,4 +1,6 @@
-angular.module("app").controller("ConstantController", ['$scope', 'environments',
-    function($scope, environments) {
-      $scope.environments_config = environments;
-}]);
+
+angular.module('app').controller('ConstantController', function($scope, $http, ENV_CONFIG_FILE){
+    $http.get(ENV_CONFIG_FILE).success(function (data){
+        $scope.environments_config = data;
+    });
+});
