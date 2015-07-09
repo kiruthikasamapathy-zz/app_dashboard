@@ -1,5 +1,9 @@
-angular.module("app").controller("StatusController", function($scope, StatusResource) {
-  $scope.status = StatusResource.get();
+angular.module("app").controller("StatusController", function($scope, $http, StatusResource,VERSION_CONFIG_FILE) {
+  //$scope.status_from_service = StatusResource.get();
+
+  $http.get(VERSION_CONFIG_FILE).success(function (data){
+      $scope.status = data;
+  });
 
   $scope.predicate = 'id';
   $scope.reverse = false;

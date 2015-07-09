@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "lineman run",
-    "test": "lineman spec-ci"
+    "test": "lineman spec-ci",
+    "production": "lineman run"
   }
 }
