@@ -18,10 +18,10 @@
   "scripts": {
     "start": "lineman run",
     "test": "lineman spec-ci",
-    "production": "lineman clean build && npm i express@3 && node -e \"var e = require('express'), a = e(); a.use(e.static('dist/')); a.listen(process.env.PORT)\""
+    "production": "lineman clean build && npm i express@3 && node -e \"var e = require('express'), a = e(); a.use(e.static('dist/')); a.listen(process.env.PORT)\"",
+    "postinstall": "bash ./post_install.sh"
   },
   "dependencies": {
-    "bower": "^1.4.1",
-    "grunt": "^0.4.5"
+    "bower": "^1.4.1"
   }
 }
