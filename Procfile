@@ -1,1 +1,1 @@
-web: lineman run
+web: npm run production
