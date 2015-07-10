@@ -15,6 +15,9 @@
     "lineman-less": "0.0.1",
     "protractor": "^1.4.0"
   },
+  "engines": {
+    "npm": "2.1.x"
+  },
   "scripts": {
     "start": "lineman run",
     "test": "lineman spec-ci",
