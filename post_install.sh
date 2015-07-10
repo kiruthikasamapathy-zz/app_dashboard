@@ -1,2 +1,3 @@
 #!/bin/bash
-./node_modules/bower/bin/bower installed
+echo "npm version is --->"
+which npm
