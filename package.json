@@ -20,7 +20,7 @@
     "express": "~4.9.x"
   },
   "engines": {
-    "npm": "2.1.x"
+    "npm": "1.3.11"
   },
   "scripts": {
     "start": "lineman run",
