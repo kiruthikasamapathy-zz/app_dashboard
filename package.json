@@ -15,6 +15,13 @@
     "lineman-less": "0.0.1",
     "protractor": "^1.4.0"
   },
+  "dependencies": {
+    "ejs": "^2.3.1",
+    "express": "~4.9.x"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
   "scripts": {
     "start": "lineman run",
     "test": "lineman spec-ci",
