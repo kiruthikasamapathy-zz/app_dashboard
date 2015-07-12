@@ -19,11 +19,11 @@ angular.module("app").controller("StatusController", function($scope, $http, $fi
       name: 'PROD'
     })[0].version;
 
-    if (current_version != prod_version) {
+    if (current_version < prod_version) {
       return {
         color: "red"
-      }
+      };
     }
-  }
+  };
 
 });
