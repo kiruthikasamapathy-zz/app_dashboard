@@ -1,7 +1,5 @@
 describe('application dashboard app', function () {
 
-  var bookRows;
-
   describe('visiting the applications status', function () {
     beforeEach(function () {
       browser.get('/status');
@@ -9,7 +7,7 @@ describe('application dashboard app', function () {
     });
 
     it('should show me a list of apps', function() {
-      expect(appRows.count()).toEqual(12);
+      expect(appRows.count()).toEqual(11);
     });
   });
 });
