@@ -12,8 +12,7 @@ angular.module("app").controller("StatusController", function($scope, $http, $fi
     $scope.predicate = predicate;
   };
 
-  $scope.set_color = function(all_versions, current_version) {
-
+  $scope.highlight_prod_differences = function(all_versions, current_version) {
     all_env_versions = angular.fromJson(all_versions);
     var prod_version = $filter('filter')(all_env_versions, {
       name: 'PROD'
