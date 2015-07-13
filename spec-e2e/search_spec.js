@@ -3,7 +3,6 @@ describe('application dashboard app', function() {
   describe('visiting the applications status', function() {
     beforeEach(function() {
       browser.get('/status');
-      appRows = element.all(by.repeater('application in status.applications'));
     });
 
     var expectApps = function(expectedApps, key) {
