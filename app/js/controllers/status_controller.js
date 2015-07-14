@@ -1,6 +1,6 @@
-angular.module("app").controller("StatusController", function($scope, $http, $filter, StatusService) {
+angular.module("app").controller("StatusController", function($scope, $filter, statusService) {
 
-  StatusService.getAll().then(function(data) {
+  statusService.getAll().then(function(data) {
     $scope.status = data;
   });
 

@@ -1,5 +1,5 @@
-angular.module("app").factory("StatusService", function($http, VERSION_CONFIG_FILE) {
-  var StatusService = {
+angular.module("app").factory("statusService", function($http, VERSION_CONFIG_FILE) {
+  var statusService = {
     getAll: function() {
       var promise = $http.get(VERSION_CONFIG_FILE).then(function (response) {
         return response.data;
@@ -7,5 +7,5 @@ angular.module("app").factory("StatusService", function($http, VERSION_CONFIG_FI
       return promise;
     }
   };
-  return StatusService;
+  return statusService;
 });
