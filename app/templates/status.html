@@ -1,7 +1,7 @@
 <!-- With $resource -->
 <div ng-controller="StatusController">
   <table class="hor-table">
-    <thead ng-controller="ConstantController">
+    <thead ng-controller="EnvironmentController">
       <tr class="search-text">
           <label id="search-text-label">Filter:
             <input ng-model="searchText">
@@ -18,15 +18,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="application in status.applications | orderBy:predicate:reverse | filter:searchText">
-        <td id="app-name" class="hor-table-td">{{ application.id }}</td>
-        <td class="hor-table-td" ng-repeat="environment in application.environments">
-          <p ng-style="highlight_prod_differences(application.environments, environment.version)" ng-show=environment.name=='SIT1'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(application.environments, environment.version)" ng-show=environment.name=='SIT2'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(application.environments, environment.version)" ng-show=environment.name=='SIT3'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(application.environments, environment.version)" ng-show=environment.name=='PROD'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(application.environments, environment.version)" ng-show=environment.name=='PSUP'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(application.environments, environment.version)" ng-show=environment.name=='CVT'>{{ environment.version }}</p>
+      <tr ng-repeat="app in status.applications | orderBy:predicate:reverse | filter:searchText">
+        <td id="app-name" class="hor-table-td">{{ app.id }}</td>
+        <td class="hor-table-td" ng-repeat="environment in app.environments">
+          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='SIT1'>{{ environment.version }}</p>
+          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='SIT2'>{{ environment.version }}</p>
+          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='SIT3'>{{ environment.version }}</p>
+          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='PROD'>{{ environment.version }}</p>
+          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='PSUP'>{{ environment.version }}</p>
+          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='CVT'>{{ environment.version }}</p>
         </td>
       </tr>
     </tbody>

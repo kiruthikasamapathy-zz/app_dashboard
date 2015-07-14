@@ -1,7 +1,6 @@
-angular.module("app").controller("StatusController", function($scope, $http, $filter, StatusResource, VERSION_CONFIG_FILE) {
-  //$scope.status_from_service = StatusResource.get();
+angular.module("app").controller("StatusController", function($scope, $http, $filter, StatusService) {
 
-  $http.get(VERSION_CONFIG_FILE).success(function(data) {
+  StatusService.getAll().then(function(data) {
     $scope.status = data;
   });
 
