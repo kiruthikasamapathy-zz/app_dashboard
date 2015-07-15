@@ -1,4 +1,4 @@
-angular.module("app").controller("StatusController", function($scope, $filter, statusService) {
+angular.module("app").controller("StatusController", function($scope, statusService, envDataParserService) {
 
   statusService.getAll().then(function(data) {
     $scope.status = data;
@@ -12,11 +12,7 @@ angular.module("app").controller("StatusController", function($scope, $filter, s
   };
 
   $scope.highlight_prod_differences = function(all_versions, current_version) {
-    all_env_versions = angular.fromJson(all_versions);
-    var prod_version = $filter('filter')(all_env_versions, {
-      name: 'PROD'
-    })[0].version;
-
+    var prod_version = envDataParserService.get_prod_version(all_versions);
     if (current_version < prod_version) {
       return {
         color: "red"

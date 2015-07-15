@@ -1,10 +1,14 @@
 describe('Controller: StatusController', function() {
-  var scope, statusService, $filter;
+  var scope, statusService, envDataParserService;
+  var prod_version = 10;
+  var all_versions = "versions mock data";
 
   beforeEach(function() {
     var mockStatusService = {};
+    var mockEnvDataParserService = {};
     module("app", function($provide) {
       $provide.value('statusService', mockStatusService);
+      $provide.value('envDataParserService', mockEnvDataParserService);
     });
 
     inject(function($q) {
@@ -21,18 +25,25 @@ describe('Controller: StatusController', function() {
         defer.resolve(this.data);
         return defer.promise;
       };
+
+      mockEnvDataParserService.get_prod_version = function() {
+        return prod_version;
+      };
+
     });
   });
 
-  beforeEach(inject(function($controller, $rootScope, _$filter_, _statusService_) {
+  var $filter;
+
+  beforeEach(inject(function($controller, $rootScope, _statusService_, _envDataParserService_) {
     scope = $rootScope.$new();
-    $filter = _$filter_;
     statusService = _statusService_;
+    envDataParserService = _envDataParserService_;
 
     $controller('StatusController', {
       $scope: scope,
-      $filter: $filter,
-      statusService: statusService
+      statusService: statusService,
+      envDataParserService: envDataParserService
     });
 
     scope.$digest();
@@ -48,31 +59,27 @@ describe('Controller: StatusController', function() {
     }]);
   });
 
-  // it('should create new libraries and append it to the list', function() {
-  //   // We simulate we entered a new library name
-  //   scope.newItemName = "Durandal";
-  //
-  //   // And that we clicked a button or something
-  //   scope.highlight_prod_differences(all_version, current_version);
-  //
-  //   scope.$digest();
-  //
-  //   var lastLibrary = scope.libraries[scope.libraries.length - 1];
-  //
-  //   expect(lastLibrary).toEqual({
-  //     id: 4,
-  //     name: 'Durandal'
-  //   });
-  // });
+  it('should highlight the version when it is less than prod version', function() {
+    var current_version = prod_version-1;
+    var highlightColor = scope.highlight_prod_differences(all_versions, current_version);
+    expect(highlightColor).toEqual({
+      color: 'red'
+    });
+  });
 
-  // it('should redirect us to a library details page', function() {
-  //   spyOn($location, 'path');
-  //
-  //   var aLibrary = scope.libraries[0];
-  //
-  //   // We simulate we clicked a library on the page
-  //   scope.goToDetails(aLibrary);
-  //
-  //   expect($location.path).toHaveBeenCalledWith('/libraries/0/details');
-  // });
+  it('should not highlight the version when it is greater than prod version', function() {
+    var current_version = prod_version+1;
+    var highlightColor = scope.highlight_prod_differences(all_versions, current_version);
+    expect(highlightColor).not.toEqual({
+      color: 'red'
+    });
+  });
+
+  it('should not highlight the version when it is same as the prod version', function() {
+    var current_version = prod_version;
+    var highlightColor = scope.highlight_prod_differences(all_versions, current_version);
+    expect(highlightColor).not.toEqual({
+      color: 'red'
+    });
+  });
 });
