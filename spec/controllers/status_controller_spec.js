@@ -62,7 +62,7 @@ describe('Controller: StatusController', function() {
   });
 
   it('should have default sort order set', function() {
-      expect(scope.reverse).toBe(false);
+      expect(scope.reverse).toBeFalsy();
   });
 
   it('should highlight the version when it is less than prod version', function() {
