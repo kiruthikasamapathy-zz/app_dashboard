@@ -59,6 +59,14 @@ describe('Controller: StatusController', function() {
     }]);
   });
 
+  it('should have default sort predicate set', function() {
+      expect(scope.predicate).toBe('id');
+  });
+
+  it('should have default sort order set', function() {
+      expect(scope.reverse).toBe(false);
+  });
+
   it('should highlight the version when it is less than prod version', function() {
     var current_version = prod_version-1;
     var highlightColor = scope.highlight_prod_differences(all_versions, current_version);
