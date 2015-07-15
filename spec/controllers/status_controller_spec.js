@@ -33,8 +33,6 @@ describe('Controller: StatusController', function() {
     });
   });
 
-  var $filter;
-
   beforeEach(inject(function($controller, $rootScope, _statusService_, _envDataParserService_) {
     scope = $rootScope.$new();
     statusService = _statusService_;

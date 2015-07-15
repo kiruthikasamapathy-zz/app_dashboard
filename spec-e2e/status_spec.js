@@ -14,6 +14,5 @@ describe('application dashboard app', function () {
     it('should show me all enviornments in the header', function() {
       expect(environmentsData.count()).toEqual(6);
     });
-
   });
 });
