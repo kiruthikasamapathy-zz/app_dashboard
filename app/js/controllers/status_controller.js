@@ -1,12 +1,12 @@
 angular.module("app").controller("StatusController", function($scope, statusService, envDataParserService) {
 
-  statusService.getAll().then(function(data) {
+  statusService.get_all().then(function(data) {
     $scope.status = data;
   });
 
   $scope.predicate = 'id';
   $scope.reverse = false;
-  
+
   $scope.order = function(predicate) {
     $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
     $scope.predicate = predicate;

@@ -1,5 +1,5 @@
 describe('Controller: StatusController', function() {
-  var scope, statusService, envDataParserService;
+  var scope,defer, statusService, envDataParserService;
   var prod_version = 10;
   var all_versions = "versions mock data";
 
@@ -20,8 +20,8 @@ describe('Controller: StatusController', function() {
         "version": 1
       }];
 
-      mockStatusService.getAll = function() {
-        var defer = $q.defer();
+      mockStatusService.get_all = function() {
+        defer = $q.defer();
         defer.resolve(this.data);
         return defer.promise;
       };
@@ -43,7 +43,6 @@ describe('Controller: StatusController', function() {
       statusService: statusService,
       envDataParserService: envDataParserService
     });
-
     scope.$digest();
   }));
 
@@ -55,6 +54,7 @@ describe('Controller: StatusController', function() {
       name: 'SIT2',
       version: 1
     }]);
+
   });
 
   it('should have default sort predicate set', function() {
