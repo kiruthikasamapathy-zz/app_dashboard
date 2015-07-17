@@ -1,6 +1,4 @@
-'use strict';
-
-var directiveModule = angular.module('angularjs-dropdown-multiselect', []);
+var directiveModule = angular.module("angularjs-dropdown-multiselect", []);
 
 directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$compile', '$parse',
   function($filter, $document, $compile, $parse) {
@@ -80,7 +78,7 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
           scrollable: false,
           scrollableHeight: '300px',
           closeOnBlur: true,
-          displayProp: 'label',
+          displayProp: 'id',
           idProp: 'id',
           externalIdProp: 'id',
           enableSearch: false,
@@ -261,7 +259,9 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
             clearObject($scope.selectedModel);
             angular.extend($scope.selectedModel, finalObj);
             $scope.externalEvents.onItemSelect(finalObj);
-            if ($scope.settings.closeOnSelect) $scope.open = false;
+            if ($scope.settings.closeOnSelect) {
+             $scope.open = false;
+            }
 
             return;
           }
@@ -277,7 +277,9 @@ directiveModule.directive('ngDropdownMultiselect', ['$filter', '$document', '$co
             $scope.selectedModel.push(finalObj);
             $scope.externalEvents.onItemSelect(finalObj);
           }
-          if ($scope.settings.closeOnSelect) $scope.open = false;
+          if ($scope.settings.closeOnSelect) {
+            $scope.open = false;
+           }
         };
 
         $scope.isChecked = function(id) {

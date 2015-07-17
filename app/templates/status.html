@@ -3,6 +3,8 @@
   <table class="hor-table">
     <thead ng-controller="EnvironmentController">
       <tr class="search-text">
+       <div ng-dropdown-multiselect="" options="status.applications" selected-model="selectedAppsModel"></div>
+       {{ selectedAppsModel }}
           <label id="search-text-label">Filter:
             <input ng-model="searchText">
       </tr>
