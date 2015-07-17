@@ -3,15 +3,18 @@
   <table class="hor-table">
     <thead ng-controller="EnvironmentController">
       <tr class="search-text">
-       <div ng-dropdown-multiselect="" options="status.applications" selected-model="selectedAppsModel"></div>
-       {{ selectedAppsModel }}
-          <label id="search-text-label">Filter:
-            <input ng-model="searchText">
+        <label id="search-text-label">Filter:
+          <input ng-model="searchText"></input>
+        </label>
+        <div ng-dropdown-multiselect="" options="status.applications"
+          selected-model="selectedAppsModel"
+          extra-settings="dropdown_settings"
+          translation-texts="dropdown_customtexts"></div>
       </tr>
       <tr class="hor-table-header">
         <th scope="col">
           <p ng-click="order('id')">Platform Apps
-            <span class="sortorder" ng-show="predicate === 'id'" ng-class="{reverse:reverse}"></span>
+            <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
           </p>
         </th>
         <th ng-repeat="env in environments_config.environments">
@@ -20,15 +23,29 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="app in status.applications | orderBy:predicate:reverse | filter:searchText">
-        <td id="app-name" class="hor-table-td">{{ app.id }}</td>
+      <tr
+        ng-repeat="app in status.applications | orderBy:predicate:reverse |
+        filter:searchText" ng-hide="is_removed_by_user(app.id)">
+        <td class="hor-table-td" id="app-name">{{ app.id }}</td>
         <td class="hor-table-td" ng-repeat="environment in app.environments">
-          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='SIT1'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='SIT2'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='SIT3'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='PROD'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='PSUP'>{{ environment.version }}</p>
-          <p ng-style="highlight_prod_differences(app.environments, environment.version)" ng-show=environment.name=='CVT'>{{ environment.version }}</p>
+          <p ng-show=environment.name=='SIT1'
+            ng-style="highlight_prod_differences(app.environments,
+            environment.version)">{{ environment.version }}</p>
+          <p ng-show=environment.name=='SIT2'
+            ng-style="highlight_prod_differences(app.environments,
+            environment.version)">{{ environment.version }}</p>
+          <p ng-show=environment.name=='SIT3'
+            ng-style="highlight_prod_differences(app.environments,
+            environment.version)">{{ environment.version }}</p>
+          <p ng-show=environment.name=='PROD'
+            ng-style="highlight_prod_differences(app.environments,
+            environment.version)">{{ environment.version }}</p>
+          <p ng-show=environment.name=='PSUP'
+            ng-style="highlight_prod_differences(app.environments,
+            environment.version)">{{ environment.version }}</p>
+          <p ng-show=environment.name=='CVT'
+            ng-style="highlight_prod_differences(app.environments,
+            environment.version)">{{ environment.version }}</p>
         </td>
       </tr>
     </tbody>
