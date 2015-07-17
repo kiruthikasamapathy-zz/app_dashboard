@@ -1,4 +1,4 @@
-angular.module("app").controller("StatusController", function($scope, statusService, envDataParserService) {
+angular.module("app").controller("StatusController", function($scope, statusService, envDataParserService, appDataParserService) {
 
   statusService.get_all().then(function(data) {
     $scope.status = data;
@@ -8,6 +8,12 @@ angular.module("app").controller("StatusController", function($scope, statusServ
   $scope.reverse = false;
 
   $scope.selectedAppsModel = [];
+  $scope.is_removed_by_user = function(id) {
+   if(appDataParserService.contains($scope.selectedAppsModel, id)) {
+    return true;
+   }
+   return false;
+  };
 
   $scope.order = function(predicate) {
     $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
