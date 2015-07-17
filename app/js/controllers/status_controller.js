@@ -2,27 +2,29 @@ angular.module("app").controller("StatusController", function($scope, statusServ
 
   statusService.get_all().then(function(data) {
     $scope.status = data;
+    $scope.selectedAppsModel = angular.copy(data.applications);
   });
 
   $scope.predicate = 'id';
   $scope.reverse = false;
 
-  $scope.selectedAppsModel = [];
-  $scope.is_removed_by_user = function(id) {
+
+  $scope.is_app_hidden = function(id) {
     if (appDataParserService.contains($scope.selectedAppsModel, id)) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   };
   $scope.dropdown_settings = {
-    enableSearch: true
+    enableSearch: true,
+    externalIdProp: ''
   };
   $scope.dropdown_customtexts = {
     buttonDefaultText: 'Select Apps',
     dynamicButtonTextSuffix: 'Apps',
     checkAll: 'Show All',
     uncheckAll: 'Hide All',
-    searchPlaceholder: 'Search Apps',
+    searchPlaceholder: 'Select Apps',
   };
 
   $scope.order = function(predicate) {
