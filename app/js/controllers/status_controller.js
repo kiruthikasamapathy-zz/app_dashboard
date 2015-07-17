@@ -9,10 +9,20 @@ angular.module("app").controller("StatusController", function($scope, statusServ
 
   $scope.selectedAppsModel = [];
   $scope.is_removed_by_user = function(id) {
-   if(appDataParserService.contains($scope.selectedAppsModel, id)) {
-    return true;
-   }
-   return false;
+    if (appDataParserService.contains($scope.selectedAppsModel, id)) {
+      return true;
+    }
+    return false;
+  };
+  $scope.dropdown_settings = {
+    enableSearch: true
+  };
+  $scope.dropdown_customtexts = {
+    buttonDefaultText: 'Select Apps',
+    dynamicButtonTextSuffix: 'Apps',
+    checkAll: 'Show All',
+    uncheckAll: 'Hide All',
+    searchPlaceholder: 'Search Apps',
   };
 
   $scope.order = function(predicate) {
