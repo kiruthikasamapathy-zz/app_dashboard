@@ -14,7 +14,8 @@ angular.module('app').controller('EnvironmentController', function($scope, envSe
   $scope.dropdown_settings = {
     enableSearch: true,
     displayProp: 'name',
-    idProp: 'name'
+    idProp: 'name',
+    externalIdProp: ''
   };
   $scope.dropdown_customtexts = {
     buttonDefaultText: 'Select Envs',

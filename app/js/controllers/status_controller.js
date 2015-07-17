@@ -1,5 +1,6 @@
 angular.module("app").controller("StatusController", function($scope, statusService, envDataParserService, appDataParserService) {
 
+  $scope.selectedAppsModel = [];
   statusService.get_all().then(function(data) {
     $scope.status = data;
     $scope.selectedAppsModel = angular.copy(data.applications);
