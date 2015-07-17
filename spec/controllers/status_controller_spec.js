@@ -101,11 +101,11 @@ describe('Controller: StatusController', function() {
   });
 
   describe("Customizations:", function() {
-    it('should return true if the app is selected by the user', function() {
+    it('should return false if the app is hidden by the user', function() {
       scope.selectedAppsModel = [{
         id: "app 1"
       }];
-      expect(scope.is_removed_by_user("app 1")).toBe(true);
+      expect(scope.is_app_hidden("app 1")).toBe(false);
     });
   });
 });

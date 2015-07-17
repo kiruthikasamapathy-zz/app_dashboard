@@ -6,10 +6,14 @@
         <label id="search-text-label">Filter:
           <input ng-model="searchText"></input>
         </label>
-        <div ng-dropdown-multiselect="" options="status.applications"
-          selected-model="selectedAppsModel"
-          extra-settings="dropdown_settings"
-          translation-texts="dropdown_customtexts"></div>
+        <div>
+          <div extra-settings="dropdown_settings" ng-dropdown-multiselect=""
+            options="status.applications" selected-model="selectedAppsModel" translation-texts="dropdown_customtexts"></div>
+        </div>
+        <!-- <div ng-controller="EnvironmentController">
+          <div extra-settings="dropdown_settings" ng-dropdown-multiselect=""
+            options="environments_config.environments" selected-model="selectedAppsModel" translation-texts="dropdown_customtexts"></div>
+        </div> -->
       </tr>
       <tr class="hor-table-header">
         <th scope="col">
@@ -23,9 +27,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr
+      <tr ng-hide="is_app_hidden(app.id)"
         ng-repeat="app in status.applications | orderBy:predicate:reverse |
-        filter:searchText" ng-hide="is_removed_by_user(app.id)">
+        filter:searchText">
         <td class="hor-table-td" id="app-name">{{ app.id }}</td>
         <td class="hor-table-td" ng-repeat="environment in app.environments">
           <p ng-show=environment.name=='SIT1'

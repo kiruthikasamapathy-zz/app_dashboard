@@ -6,6 +6,13 @@ angular.module("app").factory('envDataParserService', function($filter) {
         name: "PROD"
       }, true);
       return prod_env != null && prod_env.length > 0 ? prod_env[0].version : "";
+    },
+    contains: function(input, id) {
+      all_data = angular.fromJson(input);
+      filtered_data = $filter('filter')(all_data, {
+        id : id
+      }, true);
+      return filtered_data != null && filtered_data.length > 0 ? true : false;
     }
   };
   return envDataParserService;
