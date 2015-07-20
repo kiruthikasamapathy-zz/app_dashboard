@@ -9,18 +9,17 @@ angular.module("app").controller("StatusController", function($scope, statusServ
   $scope.predicate = 'id';
   $scope.reverse = false;
 
-
   $scope.is_app_hidden = function(id) {
     if (appDataParserService.contains($scope.selectedAppsModel, id)) {
       return false;
     }
     return true;
   };
-  $scope.dropdown_settings = {
+  $scope.app_dropdown_settings = {
     enableSearch: true,
     externalIdProp: ''
   };
-  $scope.dropdown_customtexts = {
+  $scope.app_dropdown_customtexts = {
     buttonDefaultText: 'Select Apps',
     dynamicButtonTextSuffix: 'Apps',
     checkAll: 'Show All',
