@@ -1,57 +1,47 @@
 <!-- With $resource -->
 <div ng-controller="StatusController">
+ <div ng-controller="EnvironmentController">
   <table class="hor-table">
-    <thead ng-controller="EnvironmentController">
-      <tr class="search-text">
-        <label id="search-text-label">Filter:
-          <input ng-model="searchText"></input>
-        </label>
-        <div>
-          <div extra-settings="dropdown_settings" ng-dropdown-multiselect=""
-            options="status.applications" selected-model="selectedAppsModel" translation-texts="dropdown_customtexts"></div>
-        </div>
-        <div ng-controller="EnvironmentController">
-          <div extra-settings="dropdown_settings" ng-dropdown-multiselect=""
-            options="environments_config.environments" selected-model="selectedEnvsModel" translation-texts="dropdown_customtexts"></div>
-        </div>
-      </tr>
-      <tr class="hor-table-header">
-        <th scope="col">
-          <p ng-click="order('id')">Platform Apps
-            <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
-          </p>
-        </th>
-        <th ng-repeat="env in environments_config.environments">
-          <p>{{ env.name }}</p>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-hide="is_app_hidden(app.id)"
-        ng-repeat="app in status.applications | orderBy:predicate:reverse |
+   <thead>
+    <tr class="search-text">
+     <label id="search-text-label">Filter:
+      <input ng-model="searchText"></input>
+     </label>
+     <div extra-settings="app_dropdown_settings" ng-dropdown-multiselect="" options="status.applications" selected-model="selectedAppsModel" translation-texts="app_dropdown_customtexts"></div>
+     <div extra-settings="env_dropdown_settings" ng-dropdown-multiselect="" options="environments_config.environments" selected-model="selectedEnvsModel" translation-texts="env_dropdown_customtexts"></div>
+    </tr>
+    <tr class="hor-table-header">
+     <th scope="col">
+      <p ng-click="order('id')">Platform Apps
+       <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
+      </p>
+     </th>
+     <th ng-repeat="env in environments_config.environments">
+      <p>{{ env.name }}</p>
+     </th>
+    </tr>
+   </thead>
+   <tbody>
+    {{ staus.applications }}
+    <tr ng-hide="is_app_hidden(app.id)" ng-repeat="app in status.applications | orderBy:predicate:reverse |
         filter:searchText">
-        <td class="hor-table-td" id="app-name">{{ app.id }}</td>
-        <td class="hor-table-td" ng-repeat="environment in app.environments">
-          <p ng-show=environment.name=='SIT1'
-            ng-style="highlight_prod_differences(app.environments,
+     <td class="hor-table-td" id="app-name">{{ app.id }}</td>
+     <td class="hor-table-td" ng-repeat="environment in app.environments">
+      <p ng-show=environment.name=='SIT1' ng-style="highlight_prod_differences(app.environments,
             environment.version)">{{ environment.version }}</p>
-          <p ng-show=environment.name=='SIT2'
-            ng-style="highlight_prod_differences(app.environments,
+      <p ng-show=environment.name=='SIT2' ng-style="highlight_prod_differences(app.environments,
             environment.version)">{{ environment.version }}</p>
-          <p ng-show=environment.name=='SIT3'
-            ng-style="highlight_prod_differences(app.environments,
+      <p ng-show=environment.name=='SIT3' ng-style="highlight_prod_differences(app.environments,
             environment.version)">{{ environment.version }}</p>
-          <p ng-show=environment.name=='PROD'
-            ng-style="highlight_prod_differences(app.environments,
+      <p ng-show=environment.name=='PROD' ng-style="highlight_prod_differences(app.environments,
             environment.version)">{{ environment.version }}</p>
-          <p ng-show=environment.name=='PSUP'
-            ng-style="highlight_prod_differences(app.environments,
+      <p ng-show=environment.name=='PSUP' ng-style="highlight_prod_differences(app.environments,
             environment.version)">{{ environment.version }}</p>
-          <p ng-show=environment.name=='CVT'
-            ng-style="highlight_prod_differences(app.environments,
+      <p ng-show=environment.name=='CVT' ng-style="highlight_prod_differences(app.environments,
             environment.version)">{{ environment.version }}</p>
-        </td>
-      </tr>
-    </tbody>
+     </td>
+    </tr>
+   </tbody>
   </table>
+ </div>
 </div>
