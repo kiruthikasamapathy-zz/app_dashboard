@@ -1,4 +1,4 @@
-angular.module('app').controller('EnvironmentController', function($scope, envService) {
+angular.module('app').controller('EnvironmentController', function($scope, envService,envDataParserService) {
 
   $scope.selectedEnvsModel = [];
   envService.get_all().then(function(data) {
@@ -8,9 +8,9 @@ angular.module('app').controller('EnvironmentController', function($scope, envSe
 
   $scope.is_env_hidden = function(id) {
     if (envDataParserService.contains($scope.selectedEnvsModel, id)) {
-      return true;
+      return false;
     }
-    return false;
+    return true;
   };
   $scope.env_dropdown_settings = {
     enableSearch: true,

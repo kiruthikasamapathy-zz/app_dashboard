@@ -1,5 +1,5 @@
 describe('Controller: EnvironmentController', function() {
- var scope, defer, envService;
+ var scope, defer, envService,envDataParserService;
  var env_config_data = {
   "environments": [{
    "name": "SIT1"
@@ -10,8 +10,10 @@ describe('Controller: EnvironmentController', function() {
 
  beforeEach(function() {
   var mockEnvService = {};
+  var mockEnvDataParserService = {};
   module("app", function($provide) {
    $provide.value('envService', mockEnvService);
+   $provide.value('envDataParserService', mockEnvDataParserService);
   });
 
   inject(function($q) {
@@ -23,6 +25,9 @@ describe('Controller: EnvironmentController', function() {
     return defer.promise;
    };
 
+   mockEnvDataParserService.contains = function() {
+    return true;
+   };
   });
  });
 
@@ -53,4 +58,14 @@ describe('Controller: EnvironmentController', function() {
    expect(scope.env_dropdown_customtexts.searchPlaceholder).toBeDefined();
   });
  });
+
+ describe("Customizations:", function() {
+  it('should return false if the env is hidden by the user', function() {
+   scope.selectedEnvModel = [{
+    id: "SIT 1"
+   }];
+   expect(scope.is_env_hidden("SIT 1")).toBe(false);
+  });
+ });
+
 });
