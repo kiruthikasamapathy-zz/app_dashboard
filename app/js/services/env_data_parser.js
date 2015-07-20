@@ -7,10 +7,9 @@ angular.module("app").factory('envDataParserService', function($filter) {
       }, true);
       return prod_env != null && prod_env.length > 0 ? prod_env[0].version : "";
     },
-    contains: function(input, id) {
-      all_data = angular.fromJson(input);
-      filtered_data = $filter('filter')(all_data, {
-        id : id
+    contains: function(input,search_query) {
+      filtered_data = $filter('filter')(angular.fromJson(input), {
+        name : search_query
       }, true);
       return filtered_data != null && filtered_data.length > 0 ? true : false;
     }
