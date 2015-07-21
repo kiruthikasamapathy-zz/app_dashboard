@@ -2,34 +2,36 @@
 <div ng-controller="StatusController">
  <div ng-controller="EnvironmentController">
   <table class="hor-table">
-   <thead>
-    <tr>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td></td>
-     <td>
-      <label id="search-text-label">Filter:
-       <input ng-model="searchText"></input>
-      </label>
-     </td>
-     <td extra-settings="app_dropdown_settings" ng-dropdown-multiselect=""
-      options="status.applications" selected-model="selectedAppsModel" translation-texts="app_dropdown_customtexts"></td>
-     <td extra-settings="env_dropdown_settings" ng-dropdown-multiselect=""
-      options="environments_config.environments" selected-model="selectedEnvsModel" translation-texts="env_dropdown_customtexts"></td>
-    </tr>
-    <tr class="hor-table-header">
-     <th scope="col">
-      <p ng-click="order('id')">Platform Apps
-       <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
-      </p>
-     </th>
-     <th ng-hide=is_env_hidden(env.name)
-      ng-repeat="env in environments_config.environments">
-      <p>{{ env.name }}</p>
-     </th>
-    </tr>
-   </thead>
+   <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+     <label id="search-text-label">Filter:
+      <input ng-model="searchText"></input>
+     </label>
+    </td>
+    <td extra-settings="app_dropdown_settings" ng-dropdown-multiselect=""
+     options="status.applications" selected-model="selectedAppsModel" translation-texts="app_dropdown_customtexts"></td>
+    <td extra-settings="env_dropdown_settings" ng-dropdown-multiselect=""
+     options="environments_config.environments" selected-model="selectedEnvsModel" translation-texts="env_dropdown_customtexts"></td>
+   </tr>
+  </table>
+   <table class="hor-table">
+    <thead>
+   <tr class="hor-table-header">
+    <th scope="col">
+     <p ng-click="order('id')">Platform Apps
+      <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
+     </p>
+    </th>
+    <th ng-hide=is_env_hidden(env.name)
+     ng-repeat="env in environments_config.environments">
+     <p>{{ env.name }}</p>
+    </th>
+   </tr>
+  </thead>
    <tbody>
     {{ staus.applications }}
     <tr ng-hide=is_app_hidden(app.id)
