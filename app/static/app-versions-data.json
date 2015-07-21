@@ -3,7 +3,8 @@
     "id": "Fulfilment",
     "environments": [{
       "name": "SIT1",
-      "version": "14.0.98.1"
+      "version": "14.0.98.1",
+      "date": "2015-07-20T18:25:43.511Z"
     }, {
       "name": "SIT2",
       "version": "14.0.98.1"
