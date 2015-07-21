@@ -18,20 +18,20 @@
      options="environments_config.environments" selected-model="selectedEnvsModel" translation-texts="env_dropdown_customtexts"></td>
    </tr>
   </table>
-   <table class="hor-table">
-    <thead>
-   <tr class="hor-table-header">
-    <th scope="col">
-     <p ng-click="order('id')">Platform Apps
-      <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
-     </p>
-    </th>
-    <th ng-hide=is_env_hidden(env.name)
-     ng-repeat="env in environments_config.environments">
-     <p>{{ env.name }}</p>
-    </th>
-   </tr>
-  </thead>
+  <table class="hor-table">
+   <thead>
+    <tr class="hor-table-header">
+     <th scope="col">
+      <p ng-click="order('id')">Platform Apps
+       <span class="sortorder" ng-class="{reverse:reverse}" ng-show="predicate === 'id'"></span>
+      </p>
+     </th>
+     <th ng-hide=is_env_hidden(env.name)
+      ng-repeat="env in environments_config.environments">
+      <p>{{ env.name }}</p>
+     </th>
+    </tr>
+   </thead>
    <tbody>
     {{ staus.applications }}
     <tr ng-hide=is_app_hidden(app.id)
@@ -40,6 +40,7 @@
      <td class="hor-table-td" id="app-name">{{ app.id }}</td>
      <td class="hor-table-td" ng-repeat="environment in app.environments">
       <p ng-show="environment.name=='SIT1' && !is_env_hidden('SIT1')"
+      ng-click="clickToOpen()"
        ng-style="highlight_prod_differences(app.environments,
        environment.version)">{{ environment.version }}</p>
       <p ng-show="environment.name=='SIT2' && !is_env_hidden('SIT2')"
