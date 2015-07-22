@@ -1,4 +1,4 @@
-angular.module("app").controller("StatusController", function($scope, ngDialog, statusService, envDataParserService, appDataParserService) {
+angular.module("app").controller("StatusController", function($scope, ngDialog, statusService, envDataParserService, appDataParserService, subcomponentService) {
 
  $scope.selectedAppsModel = [];
  statusService.get_all().then(function(data) {
@@ -41,7 +41,9 @@ angular.module("app").controller("StatusController", function($scope, ngDialog, 
   }
  };
 
- $scope.clickToOpen = function() {
+ $scope.subcomponents_popup = function(app_id, env_id) {
+  subcomponentService.set_app_id(app_id);
+  subcomponentService.set_env_id(env_id);
   ngDialog.open({
    template: 'subcomponents.html'
   });
