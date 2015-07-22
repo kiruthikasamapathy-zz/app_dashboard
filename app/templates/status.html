@@ -38,8 +38,9 @@
      filter:searchText">
      <td class="hor-table-td" id="app-name">{{ app.id }}</td>
      <td class="hor-table-td" ng-repeat="environment in app.environments">
-      <p ng-show="environment.name=='SIT1' && !is_env_hidden('SIT1')"
-      ng-click="clickToOpen()"
+      <p ng-click="subcomponents_popup(app.id, 'SIT1')"
+       ng-show="environment.name=='SIT1' &&
+       !is_env_hidden('SIT1')"
        ng-style="highlight_prod_differences(app.environments,
        environment.version)">{{ environment.version }}</p>
       <p ng-show="environment.name=='SIT2' && !is_env_hidden('SIT2')"
