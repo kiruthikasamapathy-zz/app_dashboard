@@ -12,6 +12,12 @@ angular.module("app").factory('envDataParserService', function($filter) {
         name : search_query
       }, true);
       return filtered_data != null && filtered_data.length > 0 ? true : false;
+    },
+    get_by_env: function(input,search_query) {
+      filtered_data = $filter('filter')(angular.fromJson(input), {
+        name : search_query
+      }, true);
+      return filtered_data;
     }
   };
   return envDataParserService;
